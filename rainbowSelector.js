@@ -13,8 +13,17 @@ var sheet = (function() {
   return style.sheet;
 })();
 
-get_color = function() {
+get_color = function(selection) {
+  selection.replace(/[^a-f]/g , "0");
+  selection = pad_nearest_three(selection);
   return "352e7e";
+}
+
+pad_nearest_three = function(str){
+  //Rounds up to the nearest 3, with a minimum of 6
+  var intendedLength = Math.max( Math.ceil(str.length/3)*3, 6);
+  var paddingString = "000000";
+  return (str + paddingString).substring(0, intendedLength);
 }
 
 $( "body" ).bind( "mouseup", function() {
