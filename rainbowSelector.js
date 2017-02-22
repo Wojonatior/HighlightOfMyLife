@@ -9,10 +9,11 @@ var sheet = (function() {
 })();
 
 //Returns a hex color code based on weird rules from a string
-get_color = function(selection) {
-  selection.replace(/[^a-f]/g , "0");
-  selection = pad_nearest_three(selection);
-  return get_two_from_thirds(selection);
+get_color = function(coloredString) {
+  coloredString = coloredString.replace(/[^a-f]/g , "0");
+  coloredString = pad_nearest_three(coloredString);
+  coloredString = get_two_from_thirds(coloredString);
+  return coloredString;
 }
 
 //get the first two characters from each third of the string
@@ -34,7 +35,7 @@ pad_nearest_three = function(str){
 
 //Binds the highlighing rule changes to releasing the mouse
 $( "body" ).bind( "mouseup", function() {
-  var selection = window.getSelection();
+  var selection = window.getSelection().toString();
   if(selection.length === 0){return;}
   var newHighlight = get_color(selection);
   var selectors = ["::selection"]//, "::-mos-selection", "::-o-selection", "::-ms-selection", "::-webkit-selection"]
