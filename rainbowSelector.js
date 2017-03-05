@@ -10,7 +10,7 @@ var sheet = (function() {
 
 //Returns a hex color code based on weird rules from a string
 get_color = function(coloredString) {
-  coloredString = coloredString.replace(/[^a-f]/g , "0");
+  coloredString = coloredString.replace(/[^0-9A-Fa-f]/g , "0");
   coloredString = pad_nearest_three(coloredString);
   coloredString = get_two_from_thirds(coloredString);
   return coloredString;
