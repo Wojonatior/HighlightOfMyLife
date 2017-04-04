@@ -33,8 +33,8 @@ pad_nearest_three = function(str){
   return (str + paddingString).substring(0, intendedLength);
 }
 
-//Binds the highlighing rule changes to releasing the mouse
-$( "body" ).bind( "mouseup", function() {
+
+highlight_logic_function = function() {
   var selection = window.getSelection().toString();
   if(selection.length === 0){return;}
   var newHighlight = get_color(selection);
@@ -50,4 +50,8 @@ $( "body" ).bind( "mouseup", function() {
     sheet.insertRule(selectors[i] + "{ background-color: #" + newHighlight + "; color: #fff; }", 0 );
   }
 
-});
+}
+
+//Binds the highlighing rule changes to releasing the mouse
+//I need to also handle disabling the logic when the switch is turned on and off
+$( "body" ).bind( "mouseup", highlight_logic_function);
