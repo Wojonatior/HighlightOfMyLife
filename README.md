@@ -4,14 +4,13 @@
 
 
 
-### What It Is
-This is the most useless javascript library that you've ever encountered that you never knew you wanted. It changes your highlight color based on the content highlighted.
+## What
+This great javascript library changes your highlight color based on the text selected.
 
+## Get
+Available as a drop in javascript library. 
 
-### Get It
-The library is currently avialable as a drop in javascript library. The library will soon be available as an extension for Chrome.
-
-### How It Works
+## How
 
 Currently a function is bound to the mouseup event to detect when new text is selected. Afterwards the text is processed in 4 steps
 
